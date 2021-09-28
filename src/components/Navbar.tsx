@@ -4,31 +4,35 @@ import {FaShoppingCart} from 'react-icons/fa';
 
 const NavbarContent = styled.div`
   display: flex;
+  justify-content: space-between;
+  
   @media (min-width: 768px) {
     margin: auto;
     width: 1000px;
   }
-  
-  // cursor: pointer;
-  align-items: center;
-  justify-content: space-between;
+`;
+
+const Menu = styled.div`
   background: #FFFFFF;
   border-bottom: 1px solid #EBEBEB;
-  border-left: 1px solid #EBEBEB;
-  border-right: 1px solid #EBEBEB;
-`;
+
+`
 
 const NavbarItem = styled.div`
   margin: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
 `;
 
 
 const Navbar = () => {
   return (
-    <NavbarContent>
-      <NavbarItem>Random eshop</NavbarItem>
-      <NavbarItem><FaShoppingCart/></NavbarItem>
-    </NavbarContent>
+    <Menu>
+      <NavbarContent>
+        <NavbarItem>Random eshop</NavbarItem>
+        <NavbarItem><FaShoppingCart/></NavbarItem>
+      </NavbarContent>
+    </Menu>
   )
 };
 

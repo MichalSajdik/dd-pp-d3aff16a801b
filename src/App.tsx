@@ -9,7 +9,7 @@ import Navbar from "./components/Navbar";
 function App() {
   return (
     <Router>
-      <div className="container">
+      <div>
         <Navbar/>
         <Route path="/" exact component={ItemsProvided}/>
         <Route exact strict path="/shop_basket/" component={ShoppingCart}/>
