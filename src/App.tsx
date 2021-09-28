@@ -2,8 +2,8 @@ import React from 'react';
 import {BrowserRouter as Router, Route} from "react-router-dom";
 import './App.css';
 
-import ShoppingList from "./components/ShoppingList";
-import ShopBasket from "./components/ShopBasket";
+import ItemsProvided from "./components/ItemsProvided";
+import ShoppingCart from "./components/ShoppingCart";
 import Navbar from "./components/Navbar";
 
 function App() {
@@ -11,8 +11,8 @@ function App() {
     <Router>
       <div className="container">
         <Navbar/>
-        <Route path="/" exact component={ShoppingList}/>
-        <Route exact strict path="/shop_basket/" component={ShopBasket}/>
+        <Route path="/" exact component={ItemsProvided}/>
+        <Route exact strict path="/shop_basket/" component={ShoppingCart}/>
       </div>
     </Router>
   );

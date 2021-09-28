@@ -1,8 +1,8 @@
 import * as React from "react";
 
 
-const ShopBasket = () => {
+const ShoppingCart = () => {
   return <div>ShopBasket</div>
 };
 
-export default ShopBasket
+export default ShoppingCart
