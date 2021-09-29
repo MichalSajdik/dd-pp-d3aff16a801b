@@ -18,7 +18,9 @@
     "react-scripts": "4.0.3",
     "styled-components": "latest",
     "typescript": "^4.1.2",
-    "web-vitals": "^1.0.1"
+    "web-vitals": "^1.0.1",
+    "redux-thunk": "latest",
+    "react-redux": "latest"
   },
   "scripts": {
     "start": "react-scripts start",

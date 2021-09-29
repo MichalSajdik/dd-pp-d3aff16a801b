@@ -33,7 +33,7 @@ const Item = (props: any) => {
   return <I>
     <ItemCost>
       <Text>{props.name}</Text>
-      <Text>{props.cost}</Text>
+      <Text>{props.price}</Text>
     </ItemCost>
     <Counter>
       <AiOutlineMinus/>

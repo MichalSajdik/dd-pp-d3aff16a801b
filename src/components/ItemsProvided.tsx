@@ -25,16 +25,17 @@ const Container = styled.div`
   }
 `;
 
+
 const ItemsProvided = () => {
 
   let items = [
-    {name: "Item 1", cost: "10 Czk"},
-    {name: "Item 2", cost: "10 Czk"},
-    {name: "Item 3", cost: "10 Czk"},
-    {name: "Item 2 test", cost: "10 Czk"},
-    {name: "Item 1", cost: "10 Czk"},
-    {name: "Item 1", cost: "10 Czk"},
-    {name: "Item 1", cost: "10 Czk"}
+    {name: "Item 1", price: 10},
+    {name: "Item 2", price: 10},
+    {name: "Item 3", price: 10},
+    {name: "Item 2 test", price: 10},
+    {name: "Item 1", price: 10},
+    {name: "Item 1", price: 10},
+    {name: "Item 1", price: 10}
   ];
 
   return (
@@ -44,7 +45,7 @@ const ItemsProvided = () => {
         <ItemsContainer>
           {items.length > 0 && items.map((item) => {
             return (
-              <Item name={item.name} cost={item.cost}/>
+              <Item name={item.name} price={item.price + " Czk"}/>
             )
           })}
         </ItemsContainer>

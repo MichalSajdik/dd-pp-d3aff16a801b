@@ -15,22 +15,34 @@ const NavbarContent = styled.div`
 const Menu = styled.div`
   background: #FFFFFF;
   border-bottom: 1px solid #EBEBEB;
-
 `
 
 const NavbarItem = styled.div`
   margin: 10px;
   margin-left: 20px;
   margin-right: 20px;
+  cursor: pointer;
 `;
 
+const Link = styled.a`
+  text-decoration: none;
+  color: inherit;
+`
 
 const Navbar = () => {
   return (
     <Menu>
       <NavbarContent>
-        <NavbarItem>Random eshop</NavbarItem>
-        <NavbarItem><FaShoppingCart/></NavbarItem>
+        <NavbarItem>
+          <Link href="/">
+            Random eshop
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link href="/shop_basket/">
+            <FaShoppingCart/>
+          </Link>
+        </NavbarItem>
       </NavbarContent>
     </Menu>
   )
