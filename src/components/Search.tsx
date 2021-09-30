@@ -34,7 +34,7 @@ const Search = (props: searchProps) => {
   return <S>
     <Input onChange={(e) => props.onInput(e.target.value)}/>
     <SearchDiv>
-      <FaSearch/>
+      <FaSearch style={{color: "rgb(45,156,219)", cursor: "pointer"}}/>
     </SearchDiv>
   </S>
 };

@@ -54,12 +54,25 @@ const Table = styled.div`
   padding: 10px;
 `;
 
+const Button = styled.button`
+  background: rgb(45,156,219);
+  cursor: pointer;
+  color: white;
+  border-radius: 2px;
+  font-size: 20px;
+  border: 0px;
+`;
 
 function removeItemsWith0Count(item: ItemInterface) {
   return item.count > 0
 }
 
 const ShoppingCart = (props: ShoppingCartProps) => {
+
+  let items = props.items.filter(removeItemsWith0Count);
+  let totalPrice = 0;
+  items.forEach(item=>totalPrice+=(item.price*item.count));
+
   return (
     <Container>
       <ShoppingCartDiv>
@@ -70,21 +83,20 @@ const ShoppingCart = (props: ShoppingCartProps) => {
             <MenuCell>Amount</MenuCell>
             <MenuCell>Price</MenuCell>
           </ItemRow>
-          {props.items.filter(removeItemsWith0Count).map((item)=>{
-            return (
-            <ItemRow>
-              <ItemCell>{item.name}</ItemCell>
-              <ItemCell>{item.count}</ItemCell>
-              <ItemCell>{item.price + " Czk"}</ItemCell>
-            </ItemRow>
+          {items.map((item) => (
+              <ItemRow key ={item.id}>
+                <ItemCell>{item.name}</ItemCell>
+                <ItemCell>{item.count}</ItemCell>
+                <ItemCell>{item.price + " Czk"}</ItemCell>
+              </ItemRow>
             )
-          })}
+          )}
         </Table>
-        <FinalPrice>50 Czk</FinalPrice>
+        <FinalPrice>{totalPrice} Czk</FinalPrice>
         <CartCenter>
-          <button onClick={()=>window.history.back()}>
+          <Button onClick={() => window.history.back()}>
             BACK
-          </button>
+          </Button>
         </CartCenter>
       </ShoppingCartDiv>
     </Container>

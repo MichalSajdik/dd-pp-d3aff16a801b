@@ -1,5 +1,5 @@
 import * as React from "react";
-import styled, {css} from "styled-components";
+import styled from "styled-components";
 import {FaShoppingCart} from 'react-icons/fa';
 import { Link } from "react-router-dom";
 
@@ -35,7 +35,7 @@ const Navbar = () => {
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link to="/shop_basket/" style={{textDecoration: "none", color: "inherit"}}>
+          <Link to="/shop_basket/" style={{textDecoration: "none",color: "rgb(45,156,219)", cursor: "pointer", fontSize: "20px"}}>
             <FaShoppingCart/>
           </Link>
         </NavbarItem>

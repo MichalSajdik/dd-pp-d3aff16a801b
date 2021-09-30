@@ -1,4 +1,4 @@
-import {ItemsActionTypes, INCREMENT_COUNTER, DECREMENT_COUNTER} from "./models/actions";
+import {INCREMENT_COUNTER, DECREMENT_COUNTER} from "./models/actions";
 
 import {Items} from './models/Items';
 import {AnyAction} from "redux";

@@ -30,20 +30,19 @@ const Counter = styled.div`
 
 const Text = styled.div`
    margin: 5px;
+   user-select: none;
 `;
 
-
 const Item = (props: ItemProps) => {
-
   return <I>
     <ItemCost>
       <Text>{props.name}</Text>
       <Text>{props.price}</Text>
     </ItemCost>
     <Counter>
-      <AiOutlineMinus onClick={props.decrement}/>
+      <AiOutlineMinus style={{background: "rgb(45,156,219)", cursor: "pointer", color: "white", borderRadius: "2px"}} onClick={props.decrement}/>
       <Text>{props.count}</Text>
-      <AiOutlinePlus onClick={props.increment}/>
+      <AiOutlinePlus style={{background: "rgb(45,156,219)", cursor: "pointer", color: "white", borderRadius: "2px"}} onClick={props.increment}/>
     </Counter>
   </I>
 };
