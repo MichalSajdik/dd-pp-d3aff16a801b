@@ -1,5 +1,8 @@
 import * as React from "react";
 import styled from "styled-components";
+import {ItemInterface} from "../store/items/models/Items";
+import {AppState} from "../store/rootStore";
+import {connect} from "react-redux";
 
 
 const Container = styled.div`
@@ -52,7 +55,11 @@ const Table = styled.div`
 `;
 
 
-const ShoppingCart = () => {
+function removeItemsWith0Count(item: ItemInterface) {
+  return item.count > 0
+}
+
+const ShoppingCart = (props: ShoppingCartProps) => {
   return (
     <Container>
       <ShoppingCartDiv>
@@ -63,16 +70,15 @@ const ShoppingCart = () => {
             <MenuCell>Amount</MenuCell>
             <MenuCell>Price</MenuCell>
           </ItemRow>
-          <ItemRow>
-            <ItemCell>Item 1</ItemCell>
-            <ItemCell>2</ItemCell>
-            <ItemCell>20 Czk</ItemCell>
-          </ItemRow>
-          <ItemRow>
-            <ItemCell>Item 2</ItemCell>
-            <ItemCell>3</ItemCell>
-            <ItemCell>30 Czk</ItemCell>
-          </ItemRow>
+          {props.items.filter(removeItemsWith0Count).map((item)=>{
+            return (
+            <ItemRow>
+              <ItemCell>{item.name}</ItemCell>
+              <ItemCell>{item.count}</ItemCell>
+              <ItemCell>{item.price + " Czk"}</ItemCell>
+            </ItemRow>
+            )
+          })}
         </Table>
         <FinalPrice>50 Czk</FinalPrice>
         <CartCenter>
@@ -85,4 +91,12 @@ const ShoppingCart = () => {
   )
 };
 
-export default ShoppingCart
+interface ShoppingCartProps {
+  items: ItemInterface[]
+}
+
+const mapStateToProps = (state: AppState) => ({
+  items: state.itemsReducer.items
+});
+
+export default connect(mapStateToProps, null)(ShoppingCart)

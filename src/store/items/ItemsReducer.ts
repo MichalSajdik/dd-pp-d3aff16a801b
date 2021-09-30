@@ -7,7 +7,7 @@ const defaultState: Items = {
   items: [{
     id: "1",
     name: "Item 1",
-    price: 5,
+    price: 531,
     count: 0
   }, {
     id: "2",

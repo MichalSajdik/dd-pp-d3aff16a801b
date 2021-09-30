@@ -1,6 +1,7 @@
 import * as React from "react";
 import styled, {css} from "styled-components";
 import {FaShoppingCart} from 'react-icons/fa';
+import { Link } from "react-router-dom";
 
 const NavbarContent = styled.div`
   display: flex;
@@ -24,22 +25,17 @@ const NavbarItem = styled.div`
   cursor: pointer;
 `;
 
-const Link = styled.a`
-  text-decoration: none;
-  color: inherit;
-`;
-
 const Navbar = () => {
   return (
     <Menu>
       <NavbarContent>
         <NavbarItem>
-          <Link href="/">
+          <Link to="/" style={{textDecoration: "none", color: "inherit"}}>
             Random eshop
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link href="/shop_basket/">
+          <Link to="/shop_basket/" style={{textDecoration: "none", color: "inherit"}}>
             <FaShoppingCart/>
           </Link>
         </NavbarItem>

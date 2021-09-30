@@ -81,7 +81,7 @@ const mapDispatchToProps = (dispatch: Dispatch, ownProps: PassedProps): ItemsPro
     increment: () => dispatch(incrementCount(ownProps.id)),
     decrement: () => dispatch(decrementCount(ownProps.id)),
   });
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Item);
 

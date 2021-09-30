@@ -6,7 +6,7 @@ import Search from "./Search";
 import {connect} from 'react-redux';
 
 import {AppState} from "../store/rootStore";
-import {ItemInterface, Items} from "../store/items/models/Items";
+import {ItemInterface} from "../store/items/models/Items";
 
 const ItemsContainer = styled.div`
   padding: 0 12px;
