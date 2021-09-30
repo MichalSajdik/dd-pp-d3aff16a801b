@@ -26,10 +26,13 @@ const SearchDiv = styled.div`
   vertical-align: middle;
 `;
 
-const Search = () => {
+interface searchProps{
+  onInput: (e:string) => void;
+}
+
+const Search = (props: searchProps) => {
   return <S>
-    <Input onInput={e => {
-    }}></Input>
+    <Input onChange={(e) => props.onInput(e.target.value)}/>
     <SearchDiv>
       <FaSearch/>
     </SearchDiv>

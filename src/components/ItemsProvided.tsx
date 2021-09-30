@@ -7,6 +7,7 @@ import {connect} from 'react-redux';
 
 import {AppState} from "../store/rootStore";
 import {ItemInterface} from "../store/items/models/Items";
+import {useState} from "react";
 
 const ItemsContainer = styled.div`
   padding: 0 12px;
@@ -31,12 +32,18 @@ const Container = styled.div`
 `;
 
 const ItemsProvided = (props: ItemsProvidedProps) => {
+  const [filter, setFilter] = useState("");
+
+  function itemsFilter(item: ItemInterface) {
+    return item.name.includes(filter);
+  }
+
   return (
     <Container>
-      <Search/>
+      <Search onInput={setFilter}/>
       <ItemsProvidedContent>
         <ItemsContainer>
-          {props.items.length > 0 && props.items.map((item: ItemInterface, i: number) => {
+          {props.items.length > 0 && props.items.filter(itemsFilter).map((item: ItemInterface, i: number) => {
             return (
               <Item name={item.name} price={item.price + " Czk"} index={i} key={item.id} id={item.id}/>
             )
