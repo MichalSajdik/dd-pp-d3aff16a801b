@@ -6,7 +6,7 @@ const S = styled.div`
     text-align: right;
     margin-right: 20px;
     margin-top: 15px;
-`
+`;
 
 const Input = styled.input`
   padding: 12px 20px;
@@ -18,13 +18,13 @@ const Input = styled.input`
   box-sizing: border-box;
   height: 40px;
   padding-right: 30px;
-`
+`;
 
 const SearchDiv = styled.div`
   display: inline;
   margin-left: -25px;
   vertical-align: middle;
-`
+`;
 
 const Search = () => {
   return <S>

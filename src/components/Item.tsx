@@ -1,6 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import {AiOutlinePlus, AiOutlineMinus} from 'react-icons/ai';
+import {AppState} from "../store/rootStore";
+import {Dispatch} from "redux";
+import {decrementCount, incrementCount} from "../store/items/ItemsAction";
+import {connect} from "react-redux";
 
 const I = styled.div`
   width: 170px;
@@ -16,31 +20,68 @@ const ItemCost = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-`
+`;
 
 const Counter = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-`
+`;
 
 const Text = styled.div`
    margin: 5px;
-`
+`;
 
 
-const Item = (props: any) => {
+const Item = (props: ItemProps) => {
+
   return <I>
     <ItemCost>
       <Text>{props.name}</Text>
       <Text>{props.price}</Text>
     </ItemCost>
     <Counter>
-      <AiOutlineMinus/>
-      <Text>0</Text>
-      <AiOutlinePlus/>
+      <AiOutlineMinus onClick={props.decrement}/>
+      <Text>{props.count}</Text>
+      <AiOutlinePlus onClick={props.increment}/>
     </Counter>
   </I>
 };
 
-export default Item;
+interface ItemProps {
+  increment: () => void;
+  decrement: () => void;
+  index: number;
+  name: string;
+  price: string;
+  count: number;
+  id: string;
+}
+
+interface PassedProps {
+  index: number;
+  name: string;
+  price: string;
+  id: string;
+}
+
+interface ItemsProvidedDispatchProps {
+  increment: () => void;
+  decrement: () => void;
+}
+
+const mapStateToProps = (state: AppState, ownProps: PassedProps) => {
+  return ({
+    count: state.itemsReducer.items[ownProps.index].count
+  })
+};
+
+const mapDispatchToProps = (dispatch: Dispatch, ownProps: PassedProps): ItemsProvidedDispatchProps => {
+  return ({
+    increment: () => dispatch(incrementCount(ownProps.id)),
+    decrement: () => dispatch(decrementCount(ownProps.id)),
+  });
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Item);
+

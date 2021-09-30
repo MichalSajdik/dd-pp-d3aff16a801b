@@ -10,17 +10,19 @@
     "@types/node": "^12.0.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
+    "@types/react-redux": "^7.1.18",
     "@types/redux": "^3.6.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.2.0",
+    "react-redux": "latest",
     "react-router-dom": "^5.3.0",
     "react-scripts": "4.0.3",
+    "redux-thunk": "latest",
     "styled-components": "latest",
     "typescript": "^4.1.2",
     "web-vitals": "^1.0.1",
-    "redux-thunk": "latest",
-    "react-redux": "latest"
+    "@reduxjs/toolkit": "latest"
   },
   "scripts": {
     "start": "react-scripts start",

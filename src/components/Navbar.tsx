@@ -15,7 +15,7 @@ const NavbarContent = styled.div`
 const Menu = styled.div`
   background: #FFFFFF;
   border-bottom: 1px solid #EBEBEB;
-`
+`;
 
 const NavbarItem = styled.div`
   margin: 10px;
@@ -27,7 +27,7 @@ const NavbarItem = styled.div`
 const Link = styled.a`
   text-decoration: none;
   color: inherit;
-`
+`;
 
 const Navbar = () => {
   return (
